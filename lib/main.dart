@@ -1,11 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/home.dart';
+import 'package:cook_book_new/pages/DarkThemePreference.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MaterialApp(
-    theme: ThemeData(
-      primaryColor: Colors.black26,
-    ),
-    home: Home(),
-  ));
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  DarkThemeProvider themeProvider = DarkThemeProvider();
+
+  void getCurrentAppTheme() async {
+    themeProvider.darkTheme =
+    await themeProvider.darkThemePreference.getTheme();
+  }
+
+  @override
+  void initState() {
+    getCurrentAppTheme();
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) {
+            return themeProvider;
+          })
+        ],
+        child: Consumer<DarkThemeProvider>(
+
+            builder: (context, ThemeData, child) {
+              return MaterialApp(
+                title: 'cook book',
+                theme: Styles.themeData(themeProvider.darkTheme, context),
+                home: Home(),
+              );
+            }
+        ));
+  }
 }
