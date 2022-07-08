@@ -38,13 +38,16 @@ class _HomeState extends State<Home> {
           title: Text('Shopping basket'),
           onTap: () {},
         ),
-        CupertinoSwitch(
+        SwitchListTile(
+          title: const Text('Dark mode'),
             value: themeChange.darkTheme,
             onChanged: (value) {
               setState(() {
                 themeChange.darkTheme = value;
               });
-            }),
+            },
+            secondary: Icon(Icons.dark_mode_outlined)
+            ),
       ])),
       appBar: AppBar(
         backgroundColor: Colors.amber,
