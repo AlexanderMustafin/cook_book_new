@@ -6,13 +6,46 @@ import 'package:provider/provider.dart';
 // import 'package:cook_book_new/resources/theme.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  List nameList = [];
+  List screenList = [];
+  List classList = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    nameList.addAll([
+      'Salads',
+      'Snacks',
+      'First meal',
+      'Second meal',
+      'Fish meal',
+      'Breakfast'
+    ]);
+
+    screenList.addAll([
+      'assets/img/salad.jpg',
+      'assets/img/snacks.jpg',
+      'assets/img/soup.jpg',
+      'assets/img/second_meal.jpg',
+      'assets/img/fish_meal.jpg',
+      'assets/img/breakfast.jpg',
+    ]);
+    
+    classList.addAll([
+      Salads(),
+      Salads(),
+      Salads(),
+      Salads(),
+      Salads(),
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
@@ -46,281 +79,69 @@ class _HomeState extends State<Home> {
             setState(() {
               themeChange.darkTheme = value;
             });
-        },
-            secondary: const Icon(Icons.dark_mode_outlined),
+          },
+          secondary: const Icon(Icons.dark_mode_outlined),
         ),
-
       ])),
       appBar: AppBar(
         backgroundColor: Colors.amber,
         title: Text('Cookbook'),
         centerTitle: true,
       ),
-    body: GridView.count(
-      primary: false,
-      padding: const EdgeInsets.all(20),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      crossAxisCount: 2,
-      children: <Widget>[
-        InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Salads()),
-            );
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage(
-                    'assets/img/salad.jpg'),
-                fit: BoxFit.fitHeight,
-              ),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.shade600,
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 5),
-                )
-              ],
-            ),
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text(
-                  'Salads',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            ),
-          ),
+      body: GridView.builder(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          mainAxisSpacing: 10,
+          maxCrossAxisExtent: 200.0,
+          crossAxisSpacing: 10,
         ),
 
-        InkWell(
-          // onTap: () {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => Salads()),
-          //   );
-          // },
-          child: Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage(
-                    'assets/img/snacks.jpg'),
-                fit: BoxFit.fitHeight,
+        itemCount: nameList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => classList[index]),
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(screenList[index]),
+                  fit: BoxFit.fitHeight,
+                ),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.shade600,
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: const Offset(0, 5),
+                  )
+                ],
               ),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.shade600,
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 5),
-                )
-              ],
-            ),
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text(
-                  'Snacks',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-
-        InkWell(
-          // onTap: () {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => Salads()),
-          //   );
-          // },
-          child: Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage(
-                    'assets/img/soup.jpg'),
-                fit: BoxFit.fitHeight,
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(nameList[index],
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
               ),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.shade600,
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 5),
-                )
-              ],
             ),
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text(
-                  'First Meal',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-
-
-        InkWell(
-          // onTap: () {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => Salads()),
-          //   );
-          // },
-          child: Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage(
-                    'assets/img/second_meal.jpg'),
-                fit: BoxFit.fitHeight,
-              ),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.shade600,
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 5),
-                )
-              ],
-            ),
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text(
-                  'Second Meal',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-
-
-        InkWell(
-          // onTap: () {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => Salads()),
-          //   );
-          // },
-          child: Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage(
-                    'assets/img/fish_meal.jpg'),
-                fit: BoxFit.fitHeight,
-              ),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.shade600,
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 5),
-                )
-              ],
-            ),
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text(
-                  'Fish Meal',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-
-
-        InkWell(
-          // onTap: () {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => Salads()),
-          //   );
-          // },
-          child: Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage(
-                    'assets/img/breakfast.jpg'),
-                fit: BoxFit.fitHeight,
-              ),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.shade600,
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 5),
-                )
-              ],
-            ),
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text(
-                  'Breakfast',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-
-      ],
-    ),
-
+          );
+        },
+      ),
     );
   }
 

@@ -105,9 +105,9 @@ class _SaladsState extends State<Salads> {
                                   ),
                                   Container(
                                       child: Row(children: [
-                                    Icon(Icons.timer),
-                                    Text(subtitleList[index])
-                                  ]))
+                                        Icon(Icons.timer),
+                                        Text(subtitleList[index])
+                                      ]))
                                 ],
                               ),
                             ),
@@ -118,81 +118,14 @@ class _SaladsState extends State<Salads> {
                         children: [
                           Align(
                               child: Container(
-                            child: Icon(Icons.favorite_border),
-                            padding: EdgeInsets.fromLTRB(0, 10, 10, 0),
-                          ))
+                                child: Icon(Icons.favorite_border),
+                                padding: EdgeInsets.fromLTRB(0, 10, 10, 0),
+                              ))
                         ],
                       )
-                      // Align(
-                      //   child: Container(
-                      //     width: 130,
-                      //     height: 100,
-                      //     decoration: BoxDecoration(
-                      //       image: DecorationImage(
-                      //         fit: BoxFit.cover,
-                      //         image: AssetImage(screenList[index])
-                      //       ),
-                      //       borderRadius: BorderRadius.all(Radius.circular(15.0))
-                      //     )
-                      //   ),
-                      //   alignment: Alignment.centerLeft,
-                      // ),
-                      // Align(
-                      //   alignment: Alignment.bottomLeft,
-                      //   child: Container(
-                      //     color: Colors.black26,
-                      //     padding: EdgeInsets.fromLTRB(20, 15, 0, 0),
-                      //     child: Column(
-                      //       crossAxisAlignment: CrossAxisAlignment.start,
-                      //       children: [
-                      //         Text(
-                      //           saladList[index],
-                      //           style: TextStyle(fontSize: 22),
-                      //         ),
-                      //         Container(
-                      //             child: Row(children: [
-                      //           Icon(Icons.timer),
-                      //           Text(subtitleList[index])
-                      //         ]))
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
-                      // Align(
-                      //   child: Icon(Icons.favorite_border),
-                      //   alignment: Alignment.topRight,
-                      // )
                     ],
                   ),
                 ),
-                // child: SizedBox(
-                //     child: Card(
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(10.0)
-                //       ),
-                //       elevation: 5,
-                //       child: ListTile(
-                //         subtitle: Text('Время проготовления 45 мин'),
-                //         title: Text(saladList[index]),
-                //         leading: Container(
-                //             width: 80,
-                //             height: 100,
-                //             padding: EdgeInsets.zero,
-                //             margin: EdgeInsets.zero,
-                //             child: Image.asset(
-                //               screenList[index],
-                //               fit: BoxFit.fill,
-                //             )),
-                //         trailing: Icon(Icons.favorite_border),
-                //         onTap: () {
-                //           Navigator.push(
-                //               context,
-                //               MaterialPageRoute(
-                //                   builder: (context) => classList[index]));
-                //         },
-                //       ),
-                //     )
-                // )
               );
             }));
   }

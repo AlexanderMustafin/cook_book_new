@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
 
             builder: (context, ThemeData, child) {
               return MaterialApp(
+                debugShowCheckedModeBanner: false,
                 title: 'cook book',
                 theme: Styles.themeData(themeProvider.darkTheme, context),
                 home: Home(),
