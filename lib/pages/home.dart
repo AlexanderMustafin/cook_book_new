@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/salads.dart';
 import 'package:cook_book_new/pages/DarkThemePreference.dart';
 import 'package:provider/provider.dart';
+import 'package:cook_book_new/pages/saladsCategories.dart';
 // import 'package:cook_book_new/resources/theme.dart';
 
 class Home extends StatefulWidget {
@@ -11,40 +12,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List nameList = [];
-  List screenList = [];
-  List classList = [];
-
-  @override
-  void initState() {
-    super.initState();
-
-    nameList.addAll([
-      'Salads',
-      'Snacks',
-      'First meal',
-      'Second meal',
-      'Fish meal',
-      'Breakfast'
-    ]);
-
-    screenList.addAll([
-      'assets/img/salad.jpg',
-      'assets/img/snacks.jpg',
-      'assets/img/soup.jpg',
-      'assets/img/second_meal.jpg',
-      'assets/img/fish_meal.jpg',
-      'assets/img/breakfast.jpg',
-    ]);
-    
-    classList.addAll([
-      Salads(),
-      Salads(),
-      Salads(),
-      Salads(),
-      Salads(),
-    ]);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,20 +65,20 @@ class _HomeState extends State<Home> {
           crossAxisSpacing: 10,
         ),
 
-        itemCount: nameList.length,
+        itemCount: categories.length,
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => classList[index]),
+                    builder: (context) => categories[index].recipe),
               );
             },
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(screenList[index]),
+                  image: AssetImage(categories[index].imagePath),
                   fit: BoxFit.fitHeight,
                 ),
                 borderRadius: BorderRadius.circular(16),
@@ -129,7 +96,7 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(nameList[index],
+                  Text(categories[index].name,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -144,6 +111,8 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+
 
 //   Widget _buildGradient() {
 //     return Positioned.fill(
