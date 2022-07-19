@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/recipes.dart';
-import 'package:cook_book_new/pages/home.dart';
+// import 'package:cook_book_new/pages/home.dart';
 import 'package:cook_book_new/pages/saladsCategories.dart';
 
 class FavoriteWidget extends StatefulWidget {
@@ -66,7 +66,7 @@ class _SaladsState extends State<Salads> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => salads[index].recipe));
+                          builder: (context) => Recipe(index: index)));
                 },
                 child: Container(
                   padding: EdgeInsets.only(top: 10),
@@ -109,9 +109,9 @@ class _SaladsState extends State<Salads> {
                                   ),
                                   Container(
                                       child: Row(children: [
-                                    Icon(Icons.timer),
-                                    Text(salads[index].cookTime)
-                                  ]))
+                                        Icon(Icons.timer),
+                                        Text('${salads[index].cookTime} min')
+                                      ]))
                                 ],
                               ),
                             ),

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cook_book_new/pages/salads.dart';
 import 'package:cook_book_new/pages/DarkThemePreference.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_book_new/pages/saladsCategories.dart';
@@ -19,37 +17,37 @@ class _HomeState extends State<Home> {
     return Scaffold(
       drawer: Drawer(
           child: ListView(children: <Widget>[
-        DrawerHeader(
-          margin: EdgeInsets.zero,
-          padding: EdgeInsets.zero,
-          child: Image.asset('assets/img/menu.jpg'),
-        ),
-        ListTile(
-          leading: Icon(Icons.home),
-          title: Text('Home'),
-          onTap: () {},
-        ),
-        ListTile(
-          leading: Icon(Icons.favorite_border),
-          title: Text('Favorites'),
-          onTap: () {},
-        ),
-        ListTile(
-          leading: Icon(Icons.shopping_bag_outlined),
-          title: Text('Shopping cart'),
-          onTap: () {},
-        ),
-        SwitchListTile(
-          title: const Text('Dark mode'),
-          value: themeChange.darkTheme,
-          onChanged: (value) {
-            setState(() {
-              themeChange.darkTheme = value;
-            });
-          },
-          secondary: const Icon(Icons.dark_mode_outlined),
-        ),
-      ])),
+            DrawerHeader(
+              margin: EdgeInsets.zero,
+              padding: EdgeInsets.zero,
+              child: Image.asset('assets/img/menu.jpg'),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.favorite_border),
+              title: Text('Favorites'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_bag_outlined),
+              title: Text('Shopping cart'),
+              onTap: () {},
+            ),
+            SwitchListTile(
+              title: const Text('Dark mode'),
+              value: themeChange.darkTheme,
+              onChanged: (value) {
+                setState(() {
+                  themeChange.darkTheme = value;
+                });
+              },
+              secondary: const Icon(Icons.dark_mode_outlined),
+            ),
+          ])),
       appBar: AppBar(
         backgroundColor: Colors.amber,
         title: Text('Cookbook'),
