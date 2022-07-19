@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/recipes.dart';
-import 'package:cook_book_new/pages/home.dart';
+
+// import 'package:cook_book_new/pages/home.dart';
 import 'package:cook_book_new/pages/saladsCategories.dart';
 
 class FavoriteWidget extends StatefulWidget {
@@ -11,7 +12,6 @@ class FavoriteWidget extends StatefulWidget {
 }
 
 class _FavoriteWidgetState extends State<FavoriteWidget> {
-
   void _toggleFavorite() {
     setState(() {
       if (_isFavorited) {
@@ -43,93 +43,79 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   }
 }
 
-class Salads extends StatefulWidget {
-  @override
-  State<Salads> createState() => _SaladsState();
-}
-
-class _SaladsState extends State<Salads> {
+class Salads extends StatelessWidget {
+  const Salads({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Salads'),
-          centerTitle: true,
-          backgroundColor: Colors.amber,
-        ),
-        body: ListView.builder(
-            itemCount: salads.length,
-            itemBuilder: (BuildContext context, int index) {
-              return InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => salads[index].recipe));
-                },
-                child: Container(
-                  padding: EdgeInsets.only(top: 10),
-                  margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                  height: 110,
-                  child: Row(
+      appBar: AppBar(
+        title: Text('Salads'),
+        centerTitle: true,
+        backgroundColor: Colors.amber,
+      ),
+      body: ListView.builder(
+        itemCount: salads.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Recipe(index: index)));
+              },
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Align(
-                            child: Container(
-                                width: 130,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: AssetImage(
-                                            salads[index].imagePath)),
-                                    borderRadius: BorderRadius.all(
-                                        Radius.circular(15.0)))),
-                          )
-                        ],
+                      Container(
+                        width: 130,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(salads[index].imagePath)),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15.0),
+                          ),
+                        ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Align(
-                            child: Container(
-                              width: 200,
-                              padding: EdgeInsets.fromLTRB(10, 5, 0, 0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              salads[index].name,
+                              style: TextStyle(fontSize: 22),
+                            ),
+                            Container(
+                              child: Row(
                                 children: [
-                                  Text(
-                                    salads[index].name,
-                                    style: TextStyle(fontSize: 22),
-                                  ),
-                                  Container(
-                                      child: Row(children: [
-                                    Icon(Icons.timer),
-                                    Text(salads[index].cookTime)
-                                  ]))
+                                  Icon(Icons.timer),
+                                  Text('${salads[index].cookTime} min')
                                 ],
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      Column(
-                        children: [
-                          Align(
-                            child: const FavoriteWidget(),
-                          )
-                        ],
-                      )
+                      const FavoriteWidget(),
                     ],
-                  ),
-                ),
-              );
-            }));
+                  )
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
-
 }

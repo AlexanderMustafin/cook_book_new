@@ -2,18 +2,18 @@ import 'package:cook_book_new/pages/salads.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/recipes.dart';
 
-class SaladsCategories {
-  const SaladsCategories({
+class SaladsRecipe {
+  const SaladsRecipe({
     required this.name,
     required this.cookTime,
     required this.imagePath,
-    required this.recipe,
+    // required this.recipe,
   });
 
   final String name;
-  final String cookTime;
+  final int cookTime;
   final String imagePath;
-  final Widget recipe;
+  // final Widget recipe;
 }
 
 class HomeCategories {
@@ -37,10 +37,10 @@ List<HomeCategories> categories = [
   HomeCategories(name: 'Breakfast', imagePath: 'assets/img/breakfast.jpg', recipe: Salads()),
 ];
 
-List<SaladsCategories> salads = [
-  SaladsCategories(name: 'Salsa', cookTime: '50 min', imagePath: 'assets/img/salad.jpg', recipe: Salsa()),
-  SaladsCategories(name: 'Perigorskiy salat', cookTime: '60 min', imagePath: 'assets/img/breakfast.jpg', recipe: Salsa()),
-  SaladsCategories(name: 'Merkury', cookTime: '120 min', imagePath: 'assets/img/second_meal.jpg', recipe: Salsa()),
-  SaladsCategories(name: 'Grecheskiy', cookTime: '45 min', imagePath: 'assets/img/salad.jpg', recipe: Salsa()),
-  SaladsCategories(name: 'Salat with chiken', cookTime: '120 min', imagePath: 'assets/img/salad.jpg', recipe: Salsa()),
+List<SaladsRecipe> salads = [
+  SaladsRecipe(name: 'Caesar salad', cookTime: 30, imagePath: 'assets/img/greek_salad.jpg'),
+  SaladsRecipe(name: 'Vinaigrette', cookTime: 45, imagePath: 'assets/img/vinaigrette_salad.webp'),
+  SaladsRecipe(name: 'Easy Pasta Salad', cookTime: 45, imagePath: 'assets/img/pasta_salad.jpg'),
+  SaladsRecipe(name: 'Greek salad', cookTime: 20, imagePath: 'assets/img/greek_salad.jpg'),
+  SaladsRecipe(name: 'Salad with chiken', cookTime: 60, imagePath: 'assets/img/chicken_salad.jpg'),
 ];
