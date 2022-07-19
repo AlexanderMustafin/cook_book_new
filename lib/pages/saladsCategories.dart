@@ -38,9 +38,9 @@ List<HomeCategories> categories = [
 ];
 
 List<SaladsRecipe> salads = [
-  SaladsRecipe(name: 'Caesar salad', cookTime: 30, imagePath: 'assets/img/caesar_salad.jpg'),
+  SaladsRecipe(name: 'Caesar salad', cookTime: 30, imagePath: 'assets/img/greek_salad.jpg'),
   SaladsRecipe(name: 'Vinaigrette', cookTime: 45, imagePath: 'assets/img/vinaigrette_salad.webp'),
   SaladsRecipe(name: 'Easy Pasta Salad', cookTime: 45, imagePath: 'assets/img/pasta_salad.jpg'),
   SaladsRecipe(name: 'Greek salad', cookTime: 20, imagePath: 'assets/img/greek_salad.jpg'),
-  SaladsRecipe(name: 'Salat with chiken', cookTime: 60, imagePath: 'assets/img/chicken_salad.jpg'),
+  SaladsRecipe(name: 'Salad with chiken', cookTime: 60, imagePath: 'assets/img/chicken_salad.jpg'),
 ];

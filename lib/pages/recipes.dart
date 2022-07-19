@@ -39,13 +39,41 @@ class Recipe extends StatelessWidget {
                   ),
                 child: Column(
                   children: <Widget> [
-                    Text(
-                      salads[index].name,
-                      style: const TextStyle(color: Color(0xFF858585)),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.only(bottom: 8),
+                                child: Text(
+                                  salads[index].name,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w100,
+                                    fontSize: 20,
+                                      color: Color(0xFF858585)
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            const Icon(
+                              Icons.timelapse_rounded,
+                              color: Color(0xFF858585),
+                            ),
+                            Text(
+                              '${salads[index].cookTime} min',
+                                style: const TextStyle(color: Color(0xFF858585), fontSize: 12)
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                    Container(
-
-                    ),
+                    const IngredientsAndPrepToggle(),
                   ],
                 ),
               ),
@@ -99,6 +127,65 @@ class _RecipeAppBar extends State<RecipeAppBar> {
     );
   }
 }
+
+class IngredientsAndPrepToggle extends StatefulWidget {
+  const IngredientsAndPrepToggle({Key? key}) : super(key: key);
+
+  @override
+  State<IngredientsAndPrepToggle> createState() => _IngredientsAndPrepToggleState();
+}
+
+class _IngredientsAndPrepToggleState extends State<IngredientsAndPrepToggle> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      decoration: const BoxDecoration(
+        border: Border.symmetric(
+          horizontal:  BorderSide(
+              width: 0.5,
+              color: Color(0xFF858585),
+              style: BorderStyle.solid
+          ),
+        )
+      ),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: InkWell(
+              onTap: null,
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: const Text(
+                  "Ingredients",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Color(0xFF858585))
+                ),
+              ),
+            ),
+          ),
+
+          Expanded(
+            flex: 1,
+            child: InkWell(
+              onTap: null,
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: const Text(
+                  "Preparation",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Color(0xFF858585))
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
 //       trailing: Column(
 //         children: const <Widget>[
