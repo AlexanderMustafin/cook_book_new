@@ -23,18 +23,18 @@ class _HomeState extends State<Home> {
               child: Image.asset('assets/img/menu.jpg'),
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
               onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.favorite_border),
-              title: Text('Favorites'),
+              leading: const Icon(Icons.favorite_border),
+              title: const Text('Favorites'),
               onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.shopping_bag_outlined),
-              title: Text('Shopping cart'),
+              leading: const Icon(Icons.shopping_bag_outlined),
+              title: const Text('Shopping cart'),
               onTap: () {},
             ),
             SwitchListTile(
@@ -50,14 +50,14 @@ class _HomeState extends State<Home> {
           ])),
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: Text('Cookbook'),
+        title: const Text('Cookbook'),
         centerTitle: true,
       ),
       body: GridView.builder(
         primary: false,
         padding: const EdgeInsets.all(20),
 
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           mainAxisSpacing: 10,
           maxCrossAxisExtent: 200.0,
           crossAxisSpacing: 10,
@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(categories[index].name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
