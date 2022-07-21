@@ -25,7 +25,9 @@ class _HomeState extends State<Home> {
             ListTile(
               leading: const Icon(Icons.home),
               title: const Text('Home'),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pop();
+              },
             ),
             ListTile(
               leading: const Icon(Icons.favorite_border),
@@ -49,7 +51,6 @@ class _HomeState extends State<Home> {
             ),
           ])),
       appBar: AppBar(
-        backgroundColor: Colors.amber,
         title: const Text('Cookbook'),
         centerTitle: true,
       ),

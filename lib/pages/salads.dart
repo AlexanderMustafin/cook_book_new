@@ -51,7 +51,6 @@ class Salads extends StatefulWidget {
 }
 
 class _SaladsState extends State<Salads> {
-
   //TODO Сделать избранное
 
   var _filteredSalads = <Salad>[];
@@ -82,7 +81,6 @@ class _SaladsState extends State<Salads> {
       appBar: AppBar(
         title: const Text('Salads'),
         centerTitle: true,
-        backgroundColor: Colors.amber,
       ),
       body: Stack(
         children: [
@@ -165,10 +163,23 @@ class _SaladsState extends State<Salads> {
                 fontWeight: FontWeight.w500,
               ),
               decoration: InputDecoration(
-                  labelText: 'Поиск',
-                  filled: true,
-                  fillColor: Colors.white.withAlpha(235),
-                  border: const OutlineInputBorder()),
+                labelText: 'Поиск',
+                filled: true,
+                fillColor: Colors.white.withAlpha(235),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: BorderSide(
+                    color: Colors.black12,
+                  ),
+                ),
+
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: BorderSide(
+                    color: Colors.black12,
+                  ),
+                ),
+              ),
             ),
           ),
         ],

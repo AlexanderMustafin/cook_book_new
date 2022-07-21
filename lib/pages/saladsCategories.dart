@@ -61,7 +61,7 @@ final salads = [
   const Salad(
     name: 'Caesar salad',
     cookTime: 30,
-    imagePath: 'assets/img/greek_salad.jpg',
+    imagePath: 'assets/img/caesar_salad.png',
   ),
   const Salad(
       name: 'Vinaigrette',
@@ -76,7 +76,19 @@ final salads = [
       cookTime: 20,
       imagePath: 'assets/img/greek_salad.jpg'),
   const Salad(
-      name: 'Salad with chiken',
+      name: 'Salad with chicken',
+      cookTime: 60,
+      imagePath: 'assets/img/chicken_salad.jpg'),
+  const Salad(
+      name: 'Salad with chicken',
+      cookTime: 60,
+      imagePath: 'assets/img/chicken_salad.jpg'),
+  const Salad(
+      name: 'Salad with chicken',
+      cookTime: 60,
+      imagePath: 'assets/img/chicken_salad.jpg'),
+  const Salad(
+      name: 'Salad with chicken',
       cookTime: 60,
       imagePath: 'assets/img/chicken_salad.jpg'),
 ];
