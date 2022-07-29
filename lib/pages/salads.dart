@@ -104,7 +104,11 @@ class _SaladsState extends State<Salads> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
+<<<<<<< HEAD
+                            builder: (context) => Recipe(i: index)));
+=======
                             builder: (context) => Recipe(index: index)));
+>>>>>>> 723620f112e8ffe40941c227045fd976b02c702e
                   },
                   child: Column(
                     children: [
@@ -168,7 +172,11 @@ class _SaladsState extends State<Salads> {
                 fillColor: Colors.white.withAlpha(235),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
+<<<<<<< HEAD
+                  borderSide: const BorderSide(
+=======
                   borderSide: BorderSide(
+>>>>>>> 723620f112e8ffe40941c227045fd976b02c702e
                     color: Colors.black12,
                   ),
                 ),
