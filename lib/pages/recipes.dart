@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/saladsCategories.dart';
 
-class Recipe extends StatelessWidget {
-  const Recipe({ this.i});
+class Recipes extends StatelessWidget {
+  const Recipes({ this.i});
 
   final int i;
 

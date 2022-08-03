@@ -102,7 +102,7 @@ class _SaladsState extends State<Salads> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Recipe(i: index)));
+                            builder: (context) => Recipes(i: index)));
                   },
                   child:
                     Column(

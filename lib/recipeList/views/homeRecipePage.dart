@@ -1,18 +1,26 @@
 
 import 'package:cook_book_new/pages/recipe_card.dart';
+import 'package:cook_book_new/pages/recipes.dart';
 import 'package:cook_book_new/recipeList/models/recipe.api.dart';
 import 'package:cook_book_new/recipeList/models/recipe.dart';
 import 'package:flutter/material.dart';
 
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({this.tag, this.displayName});
+  final String tag;
+  final String displayName;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState(this.tag, this.displayName);
 }
 
 class _HomePageState extends State<HomePage> {
+
+  final String tag;
+  final String displayName;
+  _HomePageState(this.tag, this.displayName);
+
   List<Recipe> _recipes;
   bool _isLoading = true;
 
@@ -23,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> getRecipes() async {
-    _recipes = await RecipeApi.getRecipe(); //TODO Передать tag
+    _recipes = await RecipeApi.getRecipe(tag); //TODO Передать tag
     setState(() {
       _isLoading = false;
     });
@@ -38,7 +46,9 @@ class _HomePageState extends State<HomePage> {
             children: [
               Icon(Icons.restaurant_menu),
               SizedBox(width: 10),
-              Text('Food Recipe')
+              Text(displayName),
+              SizedBox(width: 10),
+              Icon(Icons.restaurant_menu),
             ],
           ),
         ),
@@ -47,11 +57,20 @@ class _HomePageState extends State<HomePage> {
             : ListView.builder(
                 itemCount: _recipes.length,
                 itemBuilder: (context, index) {
-                  return RecipeCard(
-                      title: _recipes[index].name,
-                      cookTime: _recipes[index].totalTime,
-                      rating: _recipes[index].rating.toString(),
-                      thumbnailUrl: _recipes[index].images);
+                  return InkWell(
+                    onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        Recipes(i: index,))); //TODO перадать tag
+            },
+                    child: RecipeCard(
+                        title: _recipes[index].name,
+                        cookTime: _recipes[index].totalTime,
+                        rating: _recipes[index].rating.toString(),
+                        thumbnailUrl: _recipes[index].images),
+                  );
                 },
               ));
   }

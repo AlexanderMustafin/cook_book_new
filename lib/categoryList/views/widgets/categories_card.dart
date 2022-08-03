@@ -19,7 +19,7 @@ class CategoryCard extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        HomePage())); //TODO перадать tag
+                        HomePage(tag: tag, displayName: displayName))); //TODO перадать tag
             },
             child: Container(
               decoration: BoxDecoration(
