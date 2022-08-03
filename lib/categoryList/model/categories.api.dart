@@ -16,7 +16,6 @@ class CategoryApi {
     List _temp = [];
 
     for (var i in data['browse-categories'][9]['display']['categoryTopics']) {
-      print(i['display']);
       _temp.add(i['display']);
     }
 
