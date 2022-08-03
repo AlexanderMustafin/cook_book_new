@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/recipes.dart';
-
-// import 'package:cook_book_new/pages/home.dart';
 import 'package:cook_book_new/pages/saladsCategories.dart';
 
 class FavoriteWidget extends StatefulWidget {
-  const FavoriteWidget({Key? key}) : super(key: key);
+  const FavoriteWidget({Key key}) : super(key: key);
 
   @override
   State<FavoriteWidget> createState() => _FavoriteWidgetState();
@@ -44,7 +42,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
 }
 
 class Salads extends StatefulWidget {
-  const Salads({Key? key}) : super(key: key);
+  const Salads({Key key}) : super(key: key);
 
   @override
   State<Salads> createState() => _SaladsState();
@@ -104,51 +102,52 @@ class _SaladsState extends State<Salads> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Recipe(index: index)));
+                            builder: (context) => Recipe(i: index)));
                   },
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: 130,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(salad.imagePath)),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(15.0),
+                  child:
+                    Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              width: 130,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(salad.imagePath)),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(15.0),
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  salad.name,
-                                  style: const TextStyle(fontSize: 22),
-                                ),
-                                Row(
-                                  children: [
-                                    const Icon(Icons.timer),
-                                    Text('${salad.cookTime} min')
-                                  ],
-                                ),
-                              ],
+                            const SizedBox(
+                              width: 15,
                             ),
-                          ),
-                          const FavoriteWidget(),
-                        ],
-                      )
-                    ],
-                  ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    salad.name,
+                                    style: const TextStyle(fontSize: 22),
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.timer),
+                                      Text('${salad.cookTime} min')
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const FavoriteWidget(),
+                          ],
+                        )
+                      ],
+                    ),
                 ),
               );
             },

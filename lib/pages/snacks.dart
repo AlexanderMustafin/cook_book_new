@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/recipes.dart';
 
 class Snacks extends StatelessWidget {
-  const Snacks({Key? key}) : super(key: key);
+  const Snacks({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +45,9 @@ class Snacks extends StatelessWidget {
 
 class Recipes{
   const Recipes({
-    required this.name,
-    required this.cookTime,
-    required this.imagePath,
+     this.name,
+     this.cookTime,
+     this.imagePath,
 });
 
   final String name;

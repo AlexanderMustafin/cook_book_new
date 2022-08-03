@@ -7,13 +7,14 @@ class Salad {
   final String imagePath;
 
   const Salad({
-    required this.name,
-    required this.cookTime,
-    required this.imagePath,
+    this.name,
+    this.cookTime,
+    this.imagePath,
     // required this.recipe,
   });
 // final Widget recipe;
 }
+
 
 class HomeCategories {
   final String name;
@@ -21,9 +22,9 @@ class HomeCategories {
   final Widget recipe;
 
   HomeCategories({
-    required this.name,
-    required this.imagePath,
-    required this.recipe,
+     this.name,
+     this.imagePath,
+     this.recipe,
   });
 }
 
