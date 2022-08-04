@@ -3,6 +3,7 @@ import 'package:cook_book_new/pages/recipe_card.dart';
 import 'package:cook_book_new/pages/recipes.dart';
 import 'package:cook_book_new/recipeList/models/recipe.api.dart';
 import 'package:cook_book_new/recipeList/models/recipe.dart';
+import 'package:cook_book_new/recipe_info_list/recipe_info_card.dart';
 import 'package:flutter/material.dart';
 
 
@@ -63,7 +64,12 @@ class _HomePageState extends State<HomePage> {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        Recipes(i: index,))); //TODO перадать tag
+                        RecipesInfoCard(displayName: _recipes[index].name,
+                        image: _recipes[index].images,
+                        cookingTime: _recipes[index].totalTime,
+                        preparationsList: _recipes[index].preparationSteps,
+                        ingridientsParameters: _recipes[index].ingridientsParameters,
+                        ))); 
             },
                     child: RecipeCard(
                         title: _recipes[index].name,
