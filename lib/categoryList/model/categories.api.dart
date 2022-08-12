@@ -7,12 +7,11 @@ class CategoryApi {
     var uri = Uri.https('yummly2.p.rapidapi.com', '/categories/list');
 
     final response = await http.get(uri, headers: {
-      "x-rapidapi-key": "50bd115c82msh6cd98e24b6a03c6p1e2ca2jsn1c895ef80112",
+      "x-rapidapi-key": "9674d833damshd40e1f6feada213p152a58jsn440d333740ac",
       "x-rapidapi-host": "yummly2.p.rapidapi.com",
     });
 
     Map data = jsonDecode(response.body);
-    var index = 0;
     List _temp = [];
 
     for (var i in data['browse-categories'][9]['display']['categoryTopics']) {

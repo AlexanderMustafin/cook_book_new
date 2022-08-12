@@ -9,13 +9,13 @@ class Recipe {
   List preparationSteps;
   List<Ingrident> ingridientsParameters;
 
-  Recipe({this.name,
-    this.images,
-     this.rating,
-     this.totalTime,
+  Recipe({required this.name,
+     required this.images,
+     required this.rating,
+     required this.totalTime,
      
-     this.preparationSteps,
-     this.ingridientsParameters,
+     required this.preparationSteps,
+     required this.ingridientsParameters,
      });
 
   factory Recipe.fromJson(dynamic json) {
@@ -25,8 +25,8 @@ class Recipe {
         rating: json['details']['rating'] as double,
         totalTime: json['details']['totalTime'] as String,
 
-        preparationSteps: json['preparationSteps'] as List,
-        ingridientsParameters: (json['ingredientLines'] as List<dynamic>)//Переделать
+        preparationSteps: json['preparationSteps'] == null ? [] : json['preparationSteps'] as List,
+        ingridientsParameters: (json['ingredientLines'] as List<dynamic>)
           .map((dynamic e) => Ingrident.fromJson(e as Map<String, dynamic>))
           .toList(),
         );

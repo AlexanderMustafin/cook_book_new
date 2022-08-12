@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class RecipesInfoCard extends StatelessWidget {
   const RecipesInfoCard({
-     this.displayName,
-     this.image,
-     this.cookingTime,
-     this.preparationsList,
-     this.ingridientsParameters});
+     required this.displayName,
+     required this.image,
+     required this.cookingTime,
+     required this.preparationsList,
+     required this.ingridientsParameters});
 
   final String displayName;
   final String image;
@@ -94,7 +94,7 @@ class RecipesInfoCard extends StatelessWidget {
 }
 
 class RecipeAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const RecipeAppBar({Key key}) : super(key: key);
+  const RecipeAppBar({Key? key}) : super(key: key);
 
   @override
   State<RecipeAppBar> createState() => _RecipeAppBar();
@@ -137,7 +137,7 @@ class _RecipeAppBar extends State<RecipeAppBar> {
 }
 
 class IngredientsAndPrepToggle extends StatefulWidget {
-  const IngredientsAndPrepToggle({ this.preparation,  this.ingridientsParameters});
+  const IngredientsAndPrepToggle({required this.preparation, required this.ingridientsParameters});
   final List preparation;
   final List ingridientsParameters;
 
@@ -204,11 +204,9 @@ class _IngredientsAndPrepToggleState extends State<IngredientsAndPrepToggle> {
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Row(
                 children: [
-                  Text(ingridientsParameters[index].ingredient, style: const TextStyle(color: Color(0xFF858585)),),
+                  Expanded(child: Text('${ingridientsParameters[index].ingredient}', overflow: TextOverflow.ellipsis, style: const TextStyle(color: Color(0xFF858585)),)),
                   SizedBox(width: 5,),
-                  Text('${ingridientsParameters[index].quantity}', style: const TextStyle(fontSize: 10, color: Color(0xFF858585))),
-                  SizedBox(width: 3,),
-                  Text(ingridientsParameters[index].unit, style: const TextStyle(fontSize: 10, color: Color(0xFF858585))),
+                  Text('${ingridientsParameters[index].quantity} ${ingridientsParameters[index].unit}', style: const TextStyle(fontSize: 12, color: Color(0xFF858585))),
                 ],
               ),
             ),
@@ -316,8 +314,8 @@ class _IngredientsAndPrepToggleState extends State<IngredientsAndPrepToggle> {
 
 class Ingredients {
   const Ingredients({
-     this.ing,
-     this.amount,
+     required this.ing,
+     required this.amount,
 });
   final String ing;
   final String amount;
@@ -325,26 +323,7 @@ class Ingredients {
 
 class Preparation {
   const Preparation({
-     this.step,
+     required this.step,
   });
   final String step;
 }
-
-List <Ingredients> testIngredients = [
-  Ingredients(ing: 'Ing 1', amount: '20 pieces'),
-  Ingredients(ing: 'Ing 2', amount: '1 kg'),
-  Ingredients(ing: 'Ing 1', amount: '20 pieces'),
-  Ingredients(ing: 'Ing 2', amount: '1 kg'),
-  Ingredients(ing: 'Ing 1', amount: '20 pieces'),
-  Ingredients(ing: 'Ing 2', amount: '1 kg'),
-  Ingredients(ing: 'Ing 1', amount: '20 pieces'),
-];
-
-List <Preparation> testPreparation = [
-  Preparation(step: 'Since Null is no longer a subtype, no type except the special Null class permits the value null.'),
-  Preparation(step: 'Ssdkjaskjdla;jdasld asdl;kasdlkasj sadklasjdasl'),
-  Preparation(step: 'dasjdlasjdasld ja;djasdj as;dksdjh  jkfhsdkjfv hsdk kjsdfksdjhkjfh fdgdfgdfgdfg dfgfdgdfg jhjghjgh fgdgdf'),
-  Preparation(step: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-  Preparation(step: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."),
-  Preparation(step: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."),
-];

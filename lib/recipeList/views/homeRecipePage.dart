@@ -1,14 +1,12 @@
-
-import 'package:cook_book_new/pages/recipe_card.dart';
-import 'package:cook_book_new/pages/recipes.dart';
 import 'package:cook_book_new/recipeList/models/recipe.api.dart';
 import 'package:cook_book_new/recipeList/models/recipe.dart';
+import 'package:cook_book_new/recipeList/views/widgets/recipe_card.dart';
 import 'package:cook_book_new/recipe_info_list/recipe_info_card.dart';
 import 'package:flutter/material.dart';
 
 
 class HomePage extends StatefulWidget {
-  const HomePage({this.tag, this.displayName});
+  const HomePage({required this.tag, required this.displayName});
   final String tag;
   final String displayName;
 
@@ -22,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   final String displayName;
   _HomePageState(this.tag, this.displayName);
 
-  List<Recipe> _recipes;
+  late List<Recipe> _recipes;
   bool _isLoading = true;
 
   @override
@@ -45,11 +43,7 @@ class _HomePageState extends State<HomePage> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.restaurant_menu),
-              SizedBox(width: 10),
-              Text(displayName),
-              SizedBox(width: 10),
-              Icon(Icons.restaurant_menu),
+              Expanded(child: Text(displayName, overflow: TextOverflow.ellipsis)),
             ],
           ),
         ),
@@ -75,7 +69,8 @@ class _HomePageState extends State<HomePage> {
                         title: _recipes[index].name,
                         cookTime: _recipes[index].totalTime,
                         rating: _recipes[index].rating.toString(),
-                        thumbnailUrl: _recipes[index].images),
+                        thumbnailUrl: _recipes[index].images,
+                        thisRecipe: _recipes[index]),
                   );
                 },
               ));

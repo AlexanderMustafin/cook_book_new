@@ -3,7 +3,7 @@ class Category {
   final String iconImage; 
   final String tag;
 
-  Category({this.displayName, this.iconImage, this.tag}); 
+  Category({required this.displayName, required this.iconImage, required this.tag}); 
 
   factory Category.fromJson(dynamic json) {
     return Category(

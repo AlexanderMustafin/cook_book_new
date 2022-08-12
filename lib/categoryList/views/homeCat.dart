@@ -10,7 +10,7 @@ class HomeCategoryPage extends StatefulWidget {
 }
 
 class _HomeCategoryPageState extends State<HomeCategoryPage> {
-  List<Category> _categories;
+  late List<Category> _categories;
   bool _isLoading = true;
 
   @override

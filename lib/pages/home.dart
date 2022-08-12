@@ -1,13 +1,11 @@
 import 'package:cook_book_new/categoryList/views/homeCat.dart';
-import 'package:cook_book_new/pages/recipe_card.dart';
-import 'package:cook_book_new/recipeList/views/homeRecipePage.dart';
+import 'package:cook_book_new/recipeList/views/widgets/recipe_card.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_book_new/pages/DarkThemePreference.dart';
 import 'package:provider/provider.dart';
-import 'package:cook_book_new/pages/saladsCategories.dart';
 
-import 'home_categories.dart';
-// import 'package:cook_book_new/resources/theme.dart';
+
+import 'package:cook_book_new/resources/theme.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -36,7 +34,7 @@ class _HomeState extends State<Home> {
             ),
             ListTile(
               leading: const Icon(Icons.favorite_border),
-              title: const Text('Favorites'),
+              title: Text('Favorite'),
               onTap: () {},
             ),
             ListTile(
@@ -56,8 +54,17 @@ class _HomeState extends State<Home> {
             ),
           ])),
       appBar: AppBar(
-        title: const Text('Cookbook'),
+        title: Text('Cookbook'),
         centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.purple, Colors.red],
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
+              )
+          )
+        )
       ),
       body: HomeCategoryPage()
     );

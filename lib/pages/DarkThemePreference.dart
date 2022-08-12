@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
+
 
 class DarkThemePreference {
   static const THEME_STATUS = "THEMESTATUS";
@@ -57,7 +57,7 @@ class Styles {
           colorScheme: isDarkTheme ? ColorScheme.dark() : ColorScheme.light()),
       appBarTheme: AppBarTheme(
         elevation: 0.0,
-        color: isDarkTheme ? Colors.black : Colors.amber,
+        color: isDarkTheme ? Color.fromARGB(255, 12, 12, 12) : Colors.amber,
       ),
     );
 

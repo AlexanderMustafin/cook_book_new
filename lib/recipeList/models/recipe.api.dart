@@ -5,10 +5,10 @@ import 'package:http/http.dart' as http;
 class RecipeApi {
   static Future<List<Recipe>> getRecipe(String tag) async {
     var uri = Uri.https('yummly2.p.rapidapi.com', '/feeds/list',
-        {"limit": "15", "start": "0", "tag": tag});
+        {"limit": "20", "start": "0", "tag": tag});
 
     final response = await http.get(uri, headers: {
-      "x-rapidapi-key": "50bd115c82msh6cd98e24b6a03c6p1e2ca2jsn1c895ef80112",
+      "x-rapidapi-key": "9674d833damshd40e1f6feada213p152a58jsn440d333740ac",
       "x-rapidapi-host": "yummly2.p.rapidapi.com",
       "useQueryString": "true"
     });

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cook_book_new/pages/recipes.dart';
 
 class Snacks extends StatelessWidget {
   const Snacks({Key key}) : super(key: key);

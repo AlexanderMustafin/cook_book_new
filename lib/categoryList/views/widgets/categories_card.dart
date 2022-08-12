@@ -7,9 +7,9 @@ class CategoryCard extends StatelessWidget {
   final String tag;
 
   CategoryCard({
-    this.displayName,
-    this.categoryImage,
-    this.tag,
+    required this.displayName,
+    required this.categoryImage,
+    required this.tag,
   });
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class CategoryCard extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        HomePage(tag: tag, displayName: displayName))); //TODO перадать tag
+                        HomePage(tag: tag, displayName: displayName)));
             },
             child: Container(
               decoration: BoxDecoration(
@@ -43,14 +43,15 @@ class CategoryCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: 150,
+                    width: 130,
                     child: Text(displayName,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
+                        fontFamily: "Nunito"
                       ),
                     ),
                   )

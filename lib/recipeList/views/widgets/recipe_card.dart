@@ -1,18 +1,38 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-class RecipeCard extends StatelessWidget {
+import 'package:cook_book_new/recipeList/models/recipe.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class RecipeCard extends StatefulWidget {
   final String title;
   final String rating;
   final String cookTime;
   final String thumbnailUrl;
+  final Recipe thisRecipe;
   RecipeCard({
-    @required this.title,
-    @required this.cookTime,
-    @required this.rating,
-    @required this.thumbnailUrl,
+    required this.title,
+    required this.cookTime,
+    required this.rating,
+    required this.thumbnailUrl,
+    required this.thisRecipe,
   });
+
+  @override
+  State<RecipeCard> createState() => _RecipeCardState();
+
+}
+
+class _RecipeCardState extends State<RecipeCard> {
+
+  List<Recipe> savedRecipes = [];
+
   @override
   Widget build(BuildContext context) {
+    int index = 0;
+    Recipe resipe = widget.thisRecipe;
+    bool isSaved = savedRecipes.contains(resipe);
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
@@ -36,17 +56,34 @@ class RecipeCard extends StatelessWidget {
             Colors.black.withOpacity(0.35),
             BlendMode.multiply,
           ),
-          image: NetworkImage(thumbnailUrl),
+          image: NetworkImage(widget.thumbnailUrl),
           fit: BoxFit.cover,
         ),
       ),
       child: Stack(
         children: [
           Align(
+            child: IconButton(
+              onPressed: () async {
+                setState(() {
+                  if (isSaved) {
+                    savedRecipes.remove(resipe);
+                  }
+                  else {
+                    savedRecipes.add(resipe);
+                  }
+                });
+              },
+              icon: Icon(isSaved ? Icons.favorite : Icons.favorite_border,
+              color: Colors.red),
+            ),
+            alignment: Alignment.topRight,
+          ),
+          Align(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
               child: Text(
-                title,
+                widget.title,
                 style: TextStyle(
                   fontSize: 19,
                   color: Colors.white,
@@ -77,7 +114,7 @@ class RecipeCard extends StatelessWidget {
                         size: 18,
                       ),
                       SizedBox(width: 7),
-                      Text(rating, style: TextStyle(
+                      Text(widget.rating, style: TextStyle(
                   color: Colors.white,
                 ),),
                     ],
@@ -98,7 +135,7 @@ class RecipeCard extends StatelessWidget {
                         size: 18,
                       ),
                       SizedBox(width: 7),
-                      Text('cookTime', style: TextStyle(
+                      Text(widget.cookTime, style: TextStyle(
                   color: Colors.white,
                 )),
                     ],
