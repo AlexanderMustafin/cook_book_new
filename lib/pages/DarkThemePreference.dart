@@ -57,7 +57,7 @@ class Styles {
           colorScheme: isDarkTheme ? ColorScheme.dark() : ColorScheme.light()),
       appBarTheme: AppBarTheme(
         elevation: 0.0,
-        color: isDarkTheme ? Color.fromARGB(255, 12, 12, 12) : Colors.amber,
+        color: isDarkTheme ? Color.fromARGB(255, 12, 12, 12) : Color.fromARGB(255, 118, 30, 233),
       ),
     );
 

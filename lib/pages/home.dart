@@ -56,33 +56,8 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Cookbook'),
         centerTitle: true,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.purple, Colors.red],
-              begin: Alignment.bottomRight,
-              end: Alignment.topLeft,
-              )
-          )
-        )
       ),
       body: HomeCategoryPage()
     );
   }
-
-
-//   Widget _buildGradient() {
-//     return Positioned.fill(
-//       child: DecoratedBox(
-//         decoration: BoxDecoration(
-//           gradient: LinearGradient(
-//             colors: [Colors.transparent, Colors.black.withOpacity(0.7)],
-//             begin: Alignment.topCenter,
-//             end: Alignment.bottomCenter,
-//             stops: const [0.6, 0.95],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
 }
