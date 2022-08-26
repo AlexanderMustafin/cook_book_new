@@ -114,24 +114,6 @@ class _RecipeAppBar extends State<RecipeAppBar> {
       leading: const BackButton(
           color: Colors.white
       ),
-      actions: const <Widget>[
-        IconButton(
-          padding: EdgeInsets.all(16.0),
-          icon: Icon(
-            Icons.favorite_border, // TODO: Изменение состояния кнопки в зависимости от нажатия
-            color: Colors.white,
-          ),
-          onPressed: null,
-        ),
-        IconButton(
-          padding: EdgeInsets.all(16.0),
-          icon: Icon(
-            Icons.shopping_cart, // TODO: Кастомный виджет, отображение счётчика добавленных продуктов
-            color: Colors.white,
-          ),
-          onPressed: null,
-        ),
-      ],
     );
   }
 }
@@ -211,7 +193,6 @@ class _IngredientsAndPrepToggleState extends State<IngredientsAndPrepToggle> {
               ),
             ),
           ),
-          Icon(Icons.radio_button_unchecked, color: Color(0xFF858585)),
         ],
       );
     });

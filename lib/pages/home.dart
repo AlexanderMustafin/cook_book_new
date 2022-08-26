@@ -32,16 +32,6 @@ class _HomeState extends State<Home> {
                 Navigator.of(context).pop();
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.favorite_border),
-              title: Text('Favorite'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.shopping_bag_outlined),
-              title: const Text('Shopping cart'),
-              onTap: () {},
-            ),
             SwitchListTile(
               title: const Text('Dark mode'),
               value: themeChange.darkTheme,
